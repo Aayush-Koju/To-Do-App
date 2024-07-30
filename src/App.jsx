@@ -20,6 +20,10 @@ function App() {
     setTaskList(taskList.filter((_, i) => i !== index));
   }
 
+  const markAsComplete(index) => {
+
+  }
+
   return (
     <>
       <h1>To-Do List Application</h1>
@@ -42,6 +46,10 @@ function App() {
               <button>Mark as complete</button>
             </div>
           )))}
+      </div>
+
+      <div className="completed-task">
+        No tasks here
       </div>
     </>
   )
