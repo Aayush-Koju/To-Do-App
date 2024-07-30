@@ -9,10 +9,12 @@ function App() {
   // console.log(newTask);
 
   const storeTask = () => {
+    if(newTask === "") return (alert("New task is empty!"));
+
     setTaskList([...taskList, newTask]);
     setNewTask('');
-    console.log(taskList);
   }
+  // console.log(taskList);
 
   return (
     <>
@@ -25,7 +27,16 @@ function App() {
       </div>
 
       <div className="task-list">
-      
+        <h2>Task List</h2>
+        {taskList.length === 0 ?(
+          <div>No Tasks Available</div>
+          ): (
+            taskList.map((task, index) =>(
+              <div key={index}>
+                <p>{index + 1}. {task}</p>
+              </div>
+          ))
+        )}
       </div>
     </>
   )
