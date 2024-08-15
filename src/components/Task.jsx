@@ -1,24 +1,25 @@
-import { useState } from "react";
 import CompletedTask from "./CompletedTask";
 import "./Task.css";
 
 export default function Task({ taskList, setTaskList }) {
-  const [completedTasks, setCompletedTasks] = useState([]);
+  // const [completedTasks, setCompletedTasks] = useState([]);
   const remove = (index) => {
-    setTaskList(taskList.filter((_, i) => i !== index));
+    setTaskList((prevTaskList) => prevTaskList.filter((_, i) => i !== index));
   };
 
   const complete = (index) => {
-    if (!completedTasks.includes(completedTasks[index])) {
-      setCompletedTasks([...completedTasks, taskList[index]]);
+    if (!taskList[index].isComplete) {
+      const updatedTaskList = [...taskList];
+      updatedTaskList[index].isComplete = true;
+      setTaskList(updatedTaskList);
       // remove(index);
       getClassName(index);
     }
-    console.log(completedTasks.includes(completedTasks[index]));
+    // console.log(completedTasks.includes(completedTasks[index]));
   };
 
   const getClassName = (index) => {
-    return completedTasks.includes(index) ? "line" : "no-line";
+    return taskList[index].isComplete ? "line" : "no-line";
   };
 
   return (
@@ -28,10 +29,10 @@ export default function Task({ taskList, setTaskList }) {
         {taskList.length === 0 ? (
           <div>No Tasks Available</div>
         ) : (
-          taskList.map((task, index) => (
+          taskList.map((taskObj, index) => (
             <div key={index}>
-              <p className={getClassName()}>
-                {index + 1}. {task}
+              <p>
+                {index + 1}. {taskObj.task}
               </p>
               <button onClick={() => remove(index)}>Remove</button>
               <button onClick={() => complete(index)}>Mark as complete</button>
@@ -39,7 +40,7 @@ export default function Task({ taskList, setTaskList }) {
           ))
         )}
       </div>
-      <CompletedTask completedTasks={completedTasks} />
+      <CompletedTask taskList={taskList} />
     </>
   );
 }
