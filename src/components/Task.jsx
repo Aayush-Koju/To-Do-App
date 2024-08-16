@@ -18,29 +18,38 @@ export default function Task({ taskList, setTaskList }) {
     // console.log(completedTasks.includes(completedTasks[index]));
   };
 
-  const getClassName = (index) => {
-    return taskList[index].isComplete ? "line" : "no-line";
+  const tasksAvailable = () => {
+    return (
+      taskList.length === 0 || taskList.every((taskObj) => taskObj.isComplete)
+    );
   };
 
   return (
     <>
-      <div className="task-list">
-        <h2>Task List</h2>
-        {taskList.length === 0 ? (
-          <div>No Tasks Available</div>
-        ) : (
-          taskList.map((taskObj, index) => (
-            <div key={index}>
-              <p>
-                {index + 1}. {taskObj.task}
-              </p>
-              <button onClick={() => remove(index)}>Remove</button>
-              <button onClick={() => complete(index)}>Mark as complete</button>
-            </div>
-          ))
-        )}
+      <div className="tasks">
+        <div className="task-list">
+          <h2>Task List</h2>
+          {tasksAvailable() ? (
+            <div>No Tasks Available</div>
+          ) : (
+            taskList.map((taskObj, index) => {
+              if (!taskObj.isComplete) {
+                return (
+                  <ul key={index} className="no-line">
+                    <li>{taskObj.task}</li>
+                    <button onClick={() => remove(index)}>Remove</button>
+                    <button onClick={() => complete(index)}>
+                      Mark as complete
+                    </button>
+                  </ul>
+                );
+              }
+              return null;
+            })
+          )}
+        </div>
+        <CompletedTask taskList={taskList} />
       </div>
-      <CompletedTask taskList={taskList} />
     </>
   );
 }

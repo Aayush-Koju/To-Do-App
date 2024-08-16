@@ -24,8 +24,8 @@ function App() {
     <>
       <h1>To-Do List Application</h1>
 
-      <div className="add task">
-        <label>Add Task: </label>
+      <div className="add-task">
+        <label>Add Task</label>
         <input
           type="text"
           placeholder="enter task"

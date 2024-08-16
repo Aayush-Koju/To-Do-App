@@ -1,3 +1,5 @@
+import "./CompletedTask.css";
+
 export default function CompletedTask({ taskList }) {
   const completedTasks = taskList.filter((element) => element.isComplete);
   console.log(completedTasks);
@@ -10,11 +12,9 @@ export default function CompletedTask({ taskList }) {
           <div>No completed tasks</div>
         ) : (
           completedTasks.map((taskObj, index) => (
-            <div key={index}>
-              <p>
-                {index + 1}. {taskObj.task}
-              </p>
-            </div>
+            <ul key={index} className="line">
+              <li>{taskObj.task}</li>
+            </ul>
           ))
         )}
       </div>

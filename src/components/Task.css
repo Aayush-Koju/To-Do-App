@@ -1,3 +1,19 @@
-.line {
-    text-decoration: line-through;
+.tasks{
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 20px;
+    width: 95%;
+    height: 50%;
+}
+
+.task-list{
+    border: 1px solid black;
+    padding: 20px;
+    min-height: 50%;
+    overflow: hidden;
+}
+
+.no-line {
+    list-style-position: inside;
 }
