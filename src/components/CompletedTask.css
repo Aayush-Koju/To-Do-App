@@ -4,8 +4,17 @@
 }
 
 .completed-task {
-    border: 1px solid black;
+    border: 2px solid rgba(149,149,149,255);
     padding: 20px;
-    height: 38%;
+    height: 90%;
+    width: 50%;
     overflow-y: auto;
+    border-radius: 5px;
+}
+
+.completed-task ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
 }

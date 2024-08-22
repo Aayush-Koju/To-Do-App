@@ -7,22 +7,25 @@
     height: 63%;
     gap: 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
 }
 
 .task-list{
-    border: 1px solid black;
+    border: 2px solid rgba(149,149,149,255);
     padding: 20px;
-    height: 38%;
+    height: 90%;
+    width: 50%;
     overflow-y: auto;
+    border-radius: 5px;
 }
 
 
 .task-list-items {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     gap: 5px;
+    margin: 10px;
 }
 
 .task-list-buttons{
