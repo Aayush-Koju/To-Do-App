@@ -2,3 +2,10 @@
     text-decoration: line-through;
     list-style-position: inside;
 }
+
+.completed-task {
+    border: 1px solid black;
+    padding: 20px;
+    height: 38%;
+    overflow-y: auto;
+}

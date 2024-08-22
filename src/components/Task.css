@@ -4,16 +4,28 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 20px;
     width: 95%;
-    height: 50%;
+    height: 63%;
+    gap: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .task-list{
     border: 1px solid black;
     padding: 20px;
-    min-height: 50%;
-    overflow: hidden;
+    height: 38%;
+    overflow-y: auto;
 }
 
-.no-line {
-    list-style-position: inside;
+
+.task-list-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.task-list-buttons{
+    display: flex;
+    gap: 5px;
 }

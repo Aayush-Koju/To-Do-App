@@ -6,16 +6,18 @@ export default function CompletedTask({ taskList }) {
 
   return (
     <>
-      <h2>Completed Tasks</h2>
       <div className="completed-task">
+        <h2>Completed Tasks</h2>
         {completedTasks.length === 0 ? (
           <div>No completed tasks</div>
         ) : (
-          completedTasks.map((taskObj, index) => (
-            <ul key={index} className="line">
-              <li>{taskObj.task}</li>
-            </ul>
-          ))
+          <ul>
+            {completedTasks.map((taskObj, index) => (
+              <li key={index} className="line">
+                {taskObj.task}
+              </li>
+            ))}
+          </ul>
         )}
       </div>
     </>
