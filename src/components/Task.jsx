@@ -32,27 +32,29 @@ export default function Task({ taskList, setTaskList }) {
           {tasksAvailable() ? (
             <div>No Tasks Available</div>
           ) : (
-            <ol>
+            <ul>
               {taskList.map((taskObj, index) => {
                 if (!taskObj.isComplete) {
                   return (
                     <li key={index} className="task-list-items">
-                      <div>{taskObj.task}</div>
-                      <div className="task-list-buttons">
-                        <button onClick={() => remove(index)}>Remove</button>
-                        <button onClick={() => complete(index)}>
-                          Mark as complete
-                        </button>
+                      <div className="task-list-item">
+                        <div>{taskObj.task}</div>
+                        <div className="task-list-buttons">
+                          <button onClick={() => remove(index)}>X</button>
+                          <button onClick={() => complete(index)}>
+                            &#x2713;
+                          </button>
+                        </div>
                       </div>
                     </li>
                   );
                 }
                 return null;
               })}
-            </ol>
+            </ul>
           )}
         </div>
-        <CompletedTask taskList={taskList} />
+        <CompletedTask taskList={taskList} setTaskList={setTaskList} />
       </div>
     </>
   );

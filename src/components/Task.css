@@ -19,9 +19,13 @@
     border-radius: 5px;
 }
 
+.task-list-item {
+    display: flex;
+    align-items: center;
+}
 
 .task-list-items {
-    display: flex;
+    /* display: flex; */
     /* justify-content: center; */
     align-items: center;
     gap: 5px;

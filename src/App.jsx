@@ -14,7 +14,6 @@ function App() {
     setTaskList([...taskList, { isComplete: false, task: newTask }]);
     setNewTask("");
   };
-  console.log(taskList);
 
   // const markAsComplete(index) => {
 

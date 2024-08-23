@@ -1,8 +1,18 @@
+import { useEffect, useState } from "react";
 import "./CompletedTask.css";
 
-export default function CompletedTask({ taskList }) {
-  const completedTasks = taskList.filter((element) => element.isComplete);
-  console.log(completedTasks);
+export default function CompletedTask({ taskList, setTaskList }) {
+  const [completedTasks, setCompletedTasks] = useState([]);
+
+  useEffect(() => {
+    setCompletedTasks(taskList.filter((element) => element.isComplete));
+  }, [taskList]);
+
+  const clearCompletedTask = () => {
+    const newTaskList = taskList.filter((task) => !task.isComplete);
+    setTaskList(newTaskList);
+    setCompletedTasks([]);
+  };
 
   return (
     <>
@@ -12,6 +22,7 @@ export default function CompletedTask({ taskList }) {
           <div>No completed tasks</div>
         ) : (
           <ul>
+            <button onClick={clearCompletedTask}>Clear</button>
             {completedTasks.map((taskObj, index) => (
               <li key={index} className="line">
                 {taskObj.task}
